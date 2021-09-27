@@ -10,7 +10,6 @@ pipeline{
 		stage('Deploy'){
 				steps{
 					echo ' THIS IS DEPLOY STEP'
-					sh ' systemctl restart tomcat'
 					}	
 				
 				}
