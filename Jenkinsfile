@@ -6,7 +6,7 @@ pipeline{
 					echo ' THIS IS BUILD STEP ';
 					sh ' cd /root/myapps ;  jar -cvf myapps.war index.html ; '
 					sh 'ls /root/myapps/myapps.war ;'
-					archiveArtifacts artifacts: '/root/myapps/myapps.war'
+					archiveArtifacts artifacts: 'myapps.war'
 					}
 				}
 		stage('Deploy'){
