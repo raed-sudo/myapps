@@ -12,7 +12,7 @@ pipeline{
 				steps{
 					echo ' THIS IS DEPLOY STEP'
 					sh 'sudo  systemctl stop tomcat'
-					sh 'rm -rf /var/lib/tomcat/webapps/*'
+					sh 'sudo  rm -rf /var/lib/tomcat/webapps/*'
 					sh 'cp -f /root/myapps/myapps.war /var/lib/tomcat/webapps/'
 					sh 'sudo  systemctl start tomcat'
 				}	
