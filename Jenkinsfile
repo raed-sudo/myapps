@@ -14,8 +14,7 @@ pipeline{
 					sh 'sudo  systemctl stop tomcat'
 					try{
                                         	sh 'rm /var/lib/tomcat/webapps/myapps.war'
-					   	}
-					finally{
+					   	} finally{
 						sh 'mv /root/myapps/myapps.war /var/lib/tomcat/webapps/'
 						sh 'sudo  systemctl start tomcat'
 						}
