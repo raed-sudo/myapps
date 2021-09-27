@@ -11,8 +11,10 @@ pipeline{
 		stage('Deploy'){
 				steps{
 					echo ' THIS IS DEPLOY STEP'
+					sh 'sudo  systemctl stop tomcat'
+                                        sh 'rm /var/lib/tomcat/webapps/myapps.war'
 					sh 'mv /root/myapps/myapps.war /var/lib/tomcat/webapps/'
-					sh 'sudo  systemctl restart tomcat'
+					sh 'sudo  systemctl start tomcat'
 					}	
 				
 				}
