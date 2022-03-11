@@ -3,3 +3,4 @@ def gen_range(stop, start=1, step=1):
     while num <= stop:
         yield num
         num =+ step
+    return True
