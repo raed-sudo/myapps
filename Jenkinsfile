@@ -18,6 +18,13 @@ pipeline{
 					sh 'sudo  systemctl start tomcat'
 				}	
 				
+			}
+		stage(' Go TO PROD'){
+				steps{
+
+					echo 'This is prod'
+
 				}
+		}
 		}		
 	}
