@@ -1,0 +1,42 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Pre-Config Setup
+      copy:
+        src: /etc/hosts
+        dest: /etc/hosts
+        owner: root
+    - name: Update apt
+      apt:
+        upgrade: yes
+        update_cache: yes
+    - name: Add Repositories
+      shell:
+        cmd: add-apt-repository ppa:vbernat/haproxy-1.8
+        cmd: curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
+        cmd: sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+    - name: Install Packages
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - curl
+        - docker-ce
+        - docker
+        - kubeadm
+        - kubelet
+        - kubectl
+    - name: Hold kubernets packages
+      dpkg_selections:
+        name: "{{ item }}"
+        selection: hold
+      loop:
+        - kubeadm
+        - kubelet
+        - kubectl
+    - name: Versions Check
+      shell:
+        cmd: kubeadm version
+        cmd: docker version
+
