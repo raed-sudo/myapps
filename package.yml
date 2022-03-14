@@ -13,9 +13,7 @@
         update_cache: yes
     - name: Add Repositories
       shell:
-        cmd: add-apt-repository ppa:vbernat/haproxy-1.8
-        cmd: curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
-        cmd: sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+        cmd: add-apt-repository ppa:vbernat/haproxy-1.8 ; curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add" ; sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
     - name: Install Packages
       apt:
         name: "{{ item }}"
@@ -37,6 +35,5 @@
         - kubectl
     - name: Versions Check
       shell:
-        cmd: kubeadm version
-        cmd: docker version
+        cmd: kubeadm version ; docker version
 
