@@ -3,8 +3,6 @@ from article import *
 article = Article('test')
 
 article.matiere = 'plastique'
-article.weight = 1.526
+article.weight = 1445.4
 
-print(article.get_matiere())
-
-print(article.display_article())
+article.name = 'Crist'
