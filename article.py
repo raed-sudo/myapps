@@ -2,10 +2,11 @@ from configparser import MAX_INTERPOLATION_DEPTH
 
 
 class Article():
-    def __init__(self,name)-> None:
+    def __init__(self,name,weight)-> None:
         self.name=name
+        self.weight=weight
 
-        
+
     @property
     def name(self):
         return self.__name 
@@ -33,10 +34,11 @@ class Article():
         print('In the setter of weight')
         self.__weight = value  
 
-    def display_article(self) :
+    def show_info(self) :
         return f"Article Name : {self.name} \
-            , Matiere fabricatiob : {self.matiere} \
-            , article weight: {self.weight}"
+            , Matiere : {self.matiere} \
+            , weight: {self.weight}"
 
     def __recondition_article(self):
-        return 'article reconditioned'
+        del(self)
+        print ('Article reconditioned')
