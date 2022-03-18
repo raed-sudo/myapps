@@ -12,4 +12,10 @@ class TestCircleArea(unittest.TestCase):
     def test_CirclePerimetre(self):
         # Test Perimetre when radius >= 0
         self.assertEqual(circle_perimetre(1),pi*2)
-        self.assertRaises(ValueError,circle_perimetre, -22)
+        self.assertRaises(ValueError,circle_perimetre, -9)
+        self.assertRaises(TypeError,circle_perimetre, '-22')
+        with self.assertRaises(TypeError):
+            circle_perimetre('-22')
+
+if __name__ =='__main__':
+    unittest.main()
